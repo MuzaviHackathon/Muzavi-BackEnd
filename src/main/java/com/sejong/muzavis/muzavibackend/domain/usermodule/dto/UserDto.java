@@ -13,6 +13,9 @@ public class UserDto {
     private String name;
     private String major;
     private Integer semesterTaken;   // Java 스타일로 카멜 케이스 권장
+    private String returnSemester;
+    private String studentNumber;
+    private String preferredJob;
 
 
     public User toEntity() {

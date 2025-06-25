@@ -27,6 +27,9 @@ public class UserService {
                 .name(userDto.getName())
                 .major(userDto.getMajor())
                 .semester_taken(userDto.getSemesterTaken())
+                .returnSemester(userDto.getReturnSemester())
+                .studentNumber(userDto.getStudentNumber())
+                .preferredJob(userDto.getPreferredJob())
                 .build();
 
         return userRepository.save(user);
