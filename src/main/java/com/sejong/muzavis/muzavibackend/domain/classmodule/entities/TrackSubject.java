@@ -1,22 +1,21 @@
 package com.sejong.muzavis.muzavibackend.domain.classmodule.entities;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Getter
-@Table(name = "courese_tags")
-public class CourseTag {
+@Getter @Setter
+@Table(name = "track_subjects")
+public class TrackSubject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id")
-    private Course course;
+    private String subjectName; // 과목명 (문자열로만 저장)
 
-    private String tagName;
-    private Integer frequency;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "track_id")
+    private Track track;
 }
