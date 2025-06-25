@@ -1,9 +1,16 @@
 package com.sejong.muzavis.muzavibackend.domain.usermodule.entities;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User {
@@ -18,4 +25,11 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<UserPreference> preferences;
+
+    @Builder
+    public User(String name, String major, Integer semester_taken) {
+        this.name = name;
+        this.major = major;
+        this.semester_taken = semester_taken;
+    }
 }
