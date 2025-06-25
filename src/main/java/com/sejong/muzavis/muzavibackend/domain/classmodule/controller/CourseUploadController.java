@@ -17,7 +17,7 @@ public class CourseUploadController {
 
     private final CourseExcelService courseExcelService;
 
-    @PostMapping("/upload")
+    @PostMapping("/upload1")
     public ResponseEntity<String> uploadExcelFile(
             @RequestParam("file") MultipartFile file,
             @RequestParam("year") int year,
@@ -25,7 +25,22 @@ public class CourseUploadController {
     ) {
         try {
             Course.Semester semester = parseSemester(semesterText);
-            courseExcelService.importCoursesFromExcel(file.getInputStream(), year, semester);
+            courseExcelService.importCoursesFromExcel1(file.getInputStream(), year, semester);
+            return ResponseEntity.ok("강의 정보 업로드 성공");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("업로드 실패: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/upload2")
+    public ResponseEntity<String> uploadExcelFile1(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("year") int year,
+            @RequestParam("semester") String semesterText
+    ) {
+        try {
+            Course.Semester semester = parseSemester(semesterText);
+            courseExcelService.importCoursesFromExcel2(file.getInputStream(), year, semester);
             return ResponseEntity.ok("강의 정보 업로드 성공");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("업로드 실패: " + e.getMessage());
