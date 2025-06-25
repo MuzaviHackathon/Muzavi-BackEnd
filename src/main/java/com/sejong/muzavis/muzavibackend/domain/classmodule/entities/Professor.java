@@ -1,9 +1,7 @@
 package com.sejong.muzavis.muzavibackend.domain.classmodule.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
